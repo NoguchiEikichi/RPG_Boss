@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1037d18e31cc8409e59d9f10bfade0, type: 3}
+  m_Name: EnemyStatus_Dark
+  m_EditorClassIdentifier: 
+  enemyStatusDatas:
+  - id: 5
+    lv: 50
+    exp: 0
+    status_Base:
+      HP: 12060
+      MP: 10060
+      SP: 100
+      STR: 275
+      DEF: 350
+      INT: 300
+      MND: 350
+      AGI: 175
+      LUK: 250
+      HIT: 100
+      DEX: 5
+      CRI: 10
+      CRI_mul: 150
+      Aptitude_Fire: 100
+      Aptitude_Aqua: 100
+      Aptitude_Wind: 100
+      Aptitude_Earth: 100
+      Aptitude_Light: 100
+      Aptitude_Dark: 100
+      Resist_Fire: 100
+      Resist_Aqua: 100
+      Resist_Wind: 100
+      Resist_Earth: 100
+      Resist_Light: 100
+      Resist_Dark: 100
+    status_Plus:
+      HP: 0
+      MP: 0
+      SP: 0
+      STR: 0
+      DEF: 0
+      INT: 0
+      MND: 0
+      AGI: 0
+      LUK: 0
+      HIT: 0
+      DEX: 0
+      CRI: 0
+      CRI_mul: 0
+      Aptitude_Fire: 0
+      Aptitude_Aqua: 0
+      Aptitude_Wind: 0
+      Aptitude_Earth: 0
+      Aptitude_Light: 0
+      Aptitude_Dark: 0
+      Resist_Fire: 0
+      Resist_Aqua: 0
+      Resist_Wind: 0
+      Resist_Earth: 0
+      Resist_Light: 0
+      Resist_Dark: 0
+    status_Change:
+      HP: 0
+      MP: 0
+      SP: 0
+      STR: 0
+      DEF: 0
+      INT: 0
+      MND: 0
+      AGI: 0
+      LUK: 0
+      HIT: 0
+      DEX: 0
+      CRI: 0
+      CRI_mul: 0
+      Aptitude_Fire: 0
+      Aptitude_Aqua: 0
+      Aptitude_Wind: 0
+      Aptitude_Earth: 0
+      Aptitude_Light: 0
+      Aptitude_Dark: 0
+      Resist_Fire: 0
+      Resist_Aqua: 0
+      Resist_Wind: 0
+      Resist_Earth: 0
+      Resist_Light: 0
+      Resist_Dark: 0
+    status_Max:
+      HP: 10060
+      MP: 10060
+      SP: 100
+      STR: 400
+      DEF: 250
+      INT: 400
+      MND: 250
+      AGI: 200
+      LUK: 250
+      HIT: 100
+      DEX: 5
+      CRI: 10
+      CRI_mul: 150
+      Aptitude_Fire: 100
+      Aptitude_Aqua: 100
+      Aptitude_Wind: 100
+      Aptitude_Earth: 100
+      Aptitude_Light: 100
+      Aptitude_Dark: 100
+      Resist_Fire: 100
+      Resist_Aqua: 100
+      Resist_Wind: 100
+      Resist_Earth: 100
+      Resist_Light: 100
+      Resist_Dark: 100
+    status_Current:
+      HP: 10060
+      MP: 10060
+      SP: 100
+      STR: 400
+      DEF: 250
+      INT: 400
+      MND: 250
+      AGI: 200
+      LUK: 250
+      HIT: 100
+      DEX: 5
+      CRI: 10
+      CRI_mul: 150
+      Aptitude_Fire: 100
+      Aptitude_Aqua: 100
+      Aptitude_Wind: 100
+      Aptitude_Earth: 100
+      Aptitude_Light: 100
+      Aptitude_Dark: 100
+      Resist_Fire: 100
+      Resist_Aqua: 100
+      Resist_Wind: 100
+      Resist_Earth: 100
+      Resist_Light: 100
+      Resist_Dark: 100
+    statusEffect:
+      deadFLG: 0
+      defenseFLG: 0
+      buff_HP: 0000000000000000
+      buff_MP: 0000000000000000
+      buff_STR: 0000000000000000
+      buff_DEF: 0000000000000000
