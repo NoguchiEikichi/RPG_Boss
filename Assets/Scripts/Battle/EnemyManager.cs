@@ -477,13 +477,27 @@ public class EnemyManager : MonoBehaviour, PerformLoading
     /// <summary>
     /// idの敵の名前を渡す
     /// </summary>
-    public string GetStatus_Name(int id)
+    public string GetEnemyDB_Name(int id)
     {
         string result = "";
 
         int index = GetEnemyDB_index(id);
 
         result = enemyDB.enemyDatas[index].name;
+
+        return result;
+    }
+
+    /// <summary>
+    /// idの敵の名前を渡す
+    /// </summary>
+    public string GetEnemyStatus_Name(int index)
+    {
+        string result = "";
+
+        int index_DB = GetEnemyDB_index(enemyStatus[index].id);
+
+        result = enemyDB.enemyDatas[index_DB].name;
 
         return result;
     }

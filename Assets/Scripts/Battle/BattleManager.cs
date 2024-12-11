@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class BattleManager : MonoBehaviour
 {
@@ -18,7 +19,14 @@ public class BattleManager : MonoBehaviour
     /// バトル終了のフラグ
     /// trueになったら終了
     /// </summary>
-    bool endFLG = false;
+    bool _endFLG = false;
+    public bool endFLG
+    {
+        get { return _endFLG; }
+        private set { _endFLG = value; }
+    }
+
+    bool isTurn = false;
 
     //プレイヤーのデータ
     PartyManager partyManager;
@@ -64,20 +72,31 @@ public class BattleManager : MonoBehaviour
         //ロードが必要なものがロードできているか判定
         if (!startFLG && LoadObserver.Instance.loadEnd)
         {
+            //パーティの人数をCommandManagerに登録
+            //int num = partyManager.GetMemberNum();
+            commandManager.SetMemberNum(1);
+
             TurnEnd();
             startFLG = true;
         }
 
         //ターンの処理を開始していいか判定
-        if (!commandManager.isCommand && !endFLG && startFLG)
+        if (!commandManager.isCommand && !endFLG && startFLG && !isTurn)
         {
-            Turn();
+            isTurn = true;
+            StartCoroutine(Turn());
         }
     }
 
     //ターン全体の流れの処理
-    void Turn()
+    IEnumerator Turn()
     {
+        if (commandManager.escapeFLG)
+        {
+            Escape();
+            yield break;
+        }
+
         bool wipeOutFLG_P = false;
         bool wipeOutFLG_E = false;
 
@@ -98,6 +117,9 @@ public class BattleManager : MonoBehaviour
                     break;
             }
 
+
+            yield return new WaitForSeconds(1.0f);
+
             //どちらかが全滅しているか判定
             if (wipeOutFLG_P || wipeOutFLG_E) break;
         }
@@ -113,22 +135,24 @@ public class BattleManager : MonoBehaviour
     {
         defenseFLG_P = false;
 
-        int damage = 0;
+        //int damage = 0;
 
         switch (commandManager.command[0])
         {
+            /*
             case DataValidation._command.Attack:
                 if (defenseFLG_E) damage = playerSTR / 2;
                 else damage = playerSTR;
                 enemyManager.Damage(0, damage);
                 logManager.LogDisplay("ダメージ:" + damage);
-                break;
+                break;*/
 
             case DataValidation._command.Skill:
                 int skillID = partyManager.GetPlayerSkill(0, commandManager.commandID[0]);
                 skillManager.UseSkill(skillID, 0, 900);
                 break;
 
+                /*
             case DataValidation._command.Defense:
                 defenseFLG_P = true;
                 logManager.LogDisplay("身を守っている。");
@@ -137,7 +161,7 @@ public class BattleManager : MonoBehaviour
             case DataValidation._command.Item:
                 playerHP -= playerHP;
                 logManager.LogDisplay("item");
-                break;
+                break;*/
 
             default:
                 break;
@@ -151,7 +175,7 @@ public class BattleManager : MonoBehaviour
         if (defenseFLG_P) damage = enemySTR / 2;
         else damage = enemySTR;
 
-        playerHP = -damage;
+        //playerHP = -damage;
 
         logManager.LogDisplay("ダメージ：" + damage);
     }
@@ -162,10 +186,13 @@ public class BattleManager : MonoBehaviour
         logManager.LogDisplay("PlayerHP:" + playerHP);
         logManager.LogDisplay("EnemyHP:" + enemyHP);
         commandManager.CommandReset();
+        isTurn = false;
     }
 
-    public void Escape()
+    //逃げた時の処理
+    void Escape()
     {
+        endFLG = true;
         logManager.LogDisplay("逃げ出した！");
     }
 

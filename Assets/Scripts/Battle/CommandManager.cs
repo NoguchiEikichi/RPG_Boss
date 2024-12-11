@@ -7,8 +7,7 @@ public class CommandManager : MonoBehaviour
     //コマンド入力の判定用変数
     #region
     //コマンド入力中か
-    private bool _isCommand = false;
-
+    public bool _isCommand = false;
     //_isCommandを返す　CM内からであれば変更できる
     /// <summary>
     /// コマンド入力中か
@@ -19,12 +18,39 @@ public class CommandManager : MonoBehaviour
         private set { _isCommand = value; }
     }
 
-    int memberNum = 1;
-    int currentNum = 0;
+    int memberNum = 0;
+    int _currentNum = 0;
+    public int currentNum
+    {
+        get { return _currentNum; }
+        private set { _currentNum = value; }
+    }
     #endregion
 
     //入力された内容の格納用変数
     #region
+    bool _isBattle;
+    public bool isBattle
+    {
+        get { return _isBattle; }
+        private set { _isBattle = value; }
+    }
+    
+    bool _isInfo;
+    public bool isInfo
+    {
+        get { return _isInfo; }
+        private set { _isInfo = value; }
+    }
+
+    //逃走用のフラグ
+    bool _escapeFLG;
+    public bool escapeFLG
+    {
+        get { return _escapeFLG; }
+        private set { _escapeFLG = value; }
+    }
+
     //入力されたコマンド
     DataValidation._command[] _command;
     public DataValidation._command[] command
@@ -44,13 +70,29 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
-        _commandID = new int[memberNum];
     }
 
     void Update()
     {
     }
 
+    public void Command_Battle(bool flg)
+    {
+        isBattle = flg;
+    }
+
+    public void Command_GetInformation(bool flg)
+    {
+        isInfo = flg;
+    }
+
+    public void Command_Escape()
+    {
+        escapeFLG = true;
+        isCommand = false;
+    }
+
+    /*
     public void Command_Attack()
     {
         CommandSet(DataValidation._command.Attack,255);
@@ -59,12 +101,14 @@ public class CommandManager : MonoBehaviour
     public void Command_Skill()
     {
     }
+    */
 
     public void Select_Skill(int id)
     {
-        CommandSet(DataValidation._command.Skill, id);
+        if(isBattle) CommandSet(DataValidation._command.Skill, id);
     }
 
+    /*
     public void Command_Defense()
     {
         CommandSet(DataValidation._command.Defense,255);
@@ -74,19 +118,32 @@ public class CommandManager : MonoBehaviour
     {
         CommandSet(DataValidation._command.Item,1);
     }
+    */
 
     void CommandSet(DataValidation._command _command, int _commandId)
     {
         command[currentNum] = _command;
         commandID[currentNum] = _commandId;
         currentNum++;
-        if(currentNum >= memberNum) isCommand = false;
+
+        //メンバー全員のコマンド入力が終わったらisCommandをfalseにする
+        if (currentNum >= memberNum) isCommand = false;
     }
 
+    //コマンドの初期化
     public void CommandReset()
     {
+        isBattle = false;
+        isInfo = false;
         command = new DataValidation._command[memberNum];
+        commandID = new int[memberNum];
         currentNum = 0;
         isCommand = true;
+    }
+
+    //パーティの人数の登録
+    public void SetMemberNum(int num)
+    {
+        memberNum = num;
     }
 }

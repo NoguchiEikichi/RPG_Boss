@@ -49,15 +49,16 @@ public class SkillManager : MonoBehaviour, PerformLoading
     }
     #endregion
 
+    //スキル使用の処理
     public void UseSkill(int skillID, int userID, int targetID)
     {
         DataValidation._skillType skillType = skillDB.skillDatas[skillID].type;
 
+        //スキルの種類によって処理を分岐
         switch (skillType)
         {
             case DataValidation._skillType.Attack:
                 UseSkill_Attack(skillID, userID, targetID);
-                Debug.Log(skillDB.skillDatas[skillID].name);
                 break;
 
             case DataValidation._skillType.Heal:
@@ -71,6 +72,7 @@ public class SkillManager : MonoBehaviour, PerformLoading
         }
     }
 
+    //攻撃スキル用の処理
     void UseSkill_Attack(int skillID, int userID, int targetID)
     {
         //スキルの対象の判断
@@ -107,8 +109,14 @@ public class SkillManager : MonoBehaviour, PerformLoading
                 ChangeHP(-damage, team, target);
 
                 //使用テキストの表示
-                string text = skillDB.skillDatas[skillID].useText;
-                BattleLogManager.Instance.LogDisplay(text);
+                string useText = skillDB.skillDatas[skillID].useText;
+                BattleLogManager.Instance.LogDisplay(useText);
+
+                string text = "{0}は{1}に{2}ダメージ与えた。";
+                string userName = partyManager.GetPlayerName(userID);
+                string targetName = enemyManager.GetEnemyStatus_Name(target);
+                useText = string.Format(text, userName, targetName, damage);
+                BattleLogManager.Instance.LogDisplay(useText);
                 break;
 
             case DataValidation._target.enemy_All:
@@ -239,6 +247,32 @@ public class SkillManager : MonoBehaviour, PerformLoading
                     result = DataValidation._target.enemy_Once;
                 break;
         }
+
+        return result;
+    }
+
+    int GetSkillIndex(int skillID)
+    {
+        int result = 0;
+
+        for (int n = 0; n < skillDB.skillDatas.Length; n++)
+        {
+            if (skillID == skillDB.skillDatas[n].id)
+            {
+                result = n;
+                break;
+            }
+        }
+
+        return result;
+    }
+
+    public string GetSkillName(int skillID)
+    {
+        string result = "";
+
+        int skillIndex = GetSkillIndex(skillID);
+        result = skillDB.skillDatas[skillIndex].name;
 
         return result;
     }

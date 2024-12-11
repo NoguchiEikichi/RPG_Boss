@@ -35,6 +35,5 @@ public class LoadObserver : Singleton<LoadObserver>
 
         //すべてロードが終わっていたらtrueにする
         loadEnd = true;
-        Debug.Log("ok");
     }
 }

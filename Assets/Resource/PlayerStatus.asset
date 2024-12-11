@@ -157,7 +157,7 @@ MonoBehaviour:
       weapon: 0
       protector: 0
       accessory: 0
-    skill: 00000000070000000200000003000000
+    skill: 0000000007000000ffffffffffffffff
   - id: 1
     lv: 50
     exp: 0

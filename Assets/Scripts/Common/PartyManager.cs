@@ -45,10 +45,6 @@ public class PartyManager : MonoBehaviour
         //PlayerManagerのロードが終わっていたら処理を開始できるようにする
         if (!startFLG && LoadObserver.Instance.loadEnd)
         {
-            for (int n = 0; n < partyMemberNum; n++)
-            {
-                Debug.Log(playerManager.GetStatus_Skill(memberIDList[n], 0));
-            }
             startFLG = true;
         }
     }
@@ -148,5 +144,14 @@ public class PartyManager : MonoBehaviour
         //パーティから外したいメンバーをリストから削除し、元々メンバーがいた場所を出力
         memberIDList.RemoveAt(index);
         return index;
+    }
+
+    public int GetMemberNum()
+    {
+        int result = 0;
+
+        result = memberIDList.Count;
+
+        return result;
     }
 }

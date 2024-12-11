@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class DebugManager_Battle : MonoBehaviour
 {
-    CommandManager CM;
-    bool isSkill = false;
-
     PlayerManager PM;
 
     PartyManager partyManager;
@@ -16,7 +13,6 @@ public class DebugManager_Battle : MonoBehaviour
 
     void Start()
     {
-        CM = GameObject.Find("CommandManager").GetComponent<CommandManager>();
         PM = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
         partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
         EM = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
@@ -24,30 +20,13 @@ public class DebugManager_Battle : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             PM.StatusReset();
             EM.StatusReset();
         }
         if (Input.GetKeyDown(KeyCode.Tab)) SceneReset();
 
-        if (Input.GetKeyDown(KeyCode.A)) CM.Command_Attack();
-        if (Input.GetKeyDown(KeyCode.S)) isSkill = true;
-        if (Input.GetKeyDown(KeyCode.D)) CM.Command_Defense();
-        if (Input.GetKeyDown(KeyCode.F)) CM.Command_Item();
-        if (isSkill)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                CM.Select_Skill(0);
-                isSkill = false;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                CM.Select_Skill(1);
-                isSkill = false;
-            }
-        }
         if (Input.GetKeyDown(KeyCode.P)) partyManager.ChangePartyMember(3,0);
     }
 
