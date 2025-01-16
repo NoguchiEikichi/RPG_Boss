@@ -52,7 +52,8 @@ public class BattleLogManager : Singleton<BattleLogManager>, PerformLoading
         GameObject logObj = Instantiate(logObject);
         logObj.transform.SetParent(logSpace.transform, false);
 
-        TextMeshProUGUI logText = logObj.GetComponent<TextMeshProUGUI>();
+        GameObject textObj = logObj.transform.GetChild(0).gameObject;
+        TextMeshProUGUI logText = textObj.GetComponent<TextMeshProUGUI>();
         logText.text = logMessage;
     }
 }

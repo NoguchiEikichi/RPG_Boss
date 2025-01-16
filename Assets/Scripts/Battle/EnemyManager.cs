@@ -3,12 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Linq;
 
 public class EnemyManager : MonoBehaviour, PerformLoading
 {
     public EnemyStatus[] enemyStatus_Selection;
 
     EnemyStatusData[] enemyStatus;
+
+    int[] _enemySkill;
+    public int[] enemySkill
+    {
+        get { return _enemySkill; }
+        private set { _enemySkill = value; }
+    }
+    public int enemySkill_0
+    {
+        get { return _enemySkill[0]; }
+        private set { _enemySkill[0] = value; }
+    }
+    public int enemySkill_1
+    {
+        get { return _enemySkill[1]; }
+        private set { _enemySkill[1] = value; }
+    }
+    public int enemySkill_2
+    {
+        get { return _enemySkill[2]; }
+        private set { _enemySkill[2] = value; }
+    }
+    public int enemySkill_3
+    {
+        get { return _enemySkill[3]; }
+        private set { _enemySkill[3] = value; }
+    }
 
     //必要なアセットの読み込み
     #region
@@ -43,6 +71,9 @@ public class EnemyManager : MonoBehaviour, PerformLoading
             n = Random.Range(0, enemyStatus_Selection.Length);
             enemyStatus = enemyStatus_Selection[n].enemyStatusDatas;
 
+            StatusReset();
+            SkillSet(0);
+
             _loadEnd = true;
         }
         else Debug.LogError("Failed to load EnemyDatabase");
@@ -57,6 +88,21 @@ public class EnemyManager : MonoBehaviour, PerformLoading
             SetStatus_Base(n);
             ResetStatus_ChangeAll(n);
         }
+    }
+
+    void SkillSet(int index)
+    {
+        int index_DB = GetEnemyDB_index(enemyStatus[index].id);
+
+        //文字列を配列に変換
+        string str = enemyDB.enemyDatas[index_DB].useSkill;
+        string[] arr = str.Split("/");
+
+        //int型の配列に変換
+        int[] intArray = arr.Select(int.Parse).ToArray();
+
+        //取得した配列を保存
+        enemySkill = intArray;
     }
 
     //変動値の初期化
@@ -498,6 +544,17 @@ public class EnemyManager : MonoBehaviour, PerformLoading
         int index_DB = GetEnemyDB_index(enemyStatus[index].id);
 
         result = enemyDB.enemyDatas[index_DB].name;
+
+        return result;
+    }
+
+    public DataValidation._pattern GetEnemyStatus_Pattern(int index)
+    {
+        DataValidation._pattern result = DataValidation._pattern.none;
+
+        int index_DB = GetEnemyDB_index(enemyStatus[index].id);
+
+        result = enemyDB.enemyDatas[index_DB].pattern;
 
         return result;
     }
@@ -1688,7 +1745,7 @@ public class EnemyManager : MonoBehaviour, PerformLoading
     {
         int result = 0;
 
-        result = charaStatus * 10 * lv / 10 + lv + 10;
+        result = charaStatus * 50 * lv / 10 + lv + 10 + charaStatus * 5;
 
         return result;
     }

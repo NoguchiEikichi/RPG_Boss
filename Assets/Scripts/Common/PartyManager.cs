@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartyManager : MonoBehaviour
+public class PartyManager : Singleton<PartyManager>
 {
     [Header("主人公のID")]
     [SerializeField] int[] defaultMemberID = { 0, 1, 2 };
 
     int partyMemberNum = 3;
     List<int> memberIDList = new List<int>();
-
-    PlayerManager playerManager;
 
     //処理を行って問題ないか
     bool _startFLG = false;
@@ -22,13 +20,22 @@ public class PartyManager : MonoBehaviour
 
     void Awake()
     {
+        //もし他のオブジェクトの子であれば、親子関係を解除
+        if (gameObject.transform.parent != null) gameObject.transform.parent = null;
+
+        //もし他にPartyManagerが存在していたら、このオブジェクトをDestroy
+        if (this != Instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);  //PartyManagerはシーン遷移しても削除しない
     }
 
-    //主人公のIDの登録
+    //最初のIDの登録
     void Start()
     {
-        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
-
         for (int n = 0; n < partyMemberNum; n++)
         {
             AddPartyMember(defaultMemberID[n]);
@@ -56,9 +63,14 @@ public class PartyManager : MonoBehaviour
         string result = "";
         int playerID = memberIDList[playerIndex];
 
-        result = playerManager.GetStatus_Name(playerID);
+        result = PlayerManager.Instance.GetStatus_Name(playerID);
 
         return result;
+    }
+
+    public int GetPlayerID(int playerIndex)
+    {
+        return memberIDList[playerIndex];
     }
 
     public int GetPlayerStatus_Current(int playerIndex, DataValidation._status status)
@@ -66,7 +78,7 @@ public class PartyManager : MonoBehaviour
         int result = 100;
         int playerID = memberIDList[playerIndex];
 
-        result = playerManager.GetStatus_Current(playerID, status);
+        result = PlayerManager.Instance.GetStatus_Current(playerID, status);
 
         return result;
     }
@@ -76,21 +88,16 @@ public class PartyManager : MonoBehaviour
         int result = 100;
         int playerID = memberIDList[playerIndex];
 
-        result = playerManager.GetStatus_Max(playerID, status);
+        result = PlayerManager.Instance.GetStatus_Max(playerID, status);
 
         return result;
-    }
-
-    public void PlusPlayerStatus(int playerIndex, int plusNum, DataValidation._status status)
-    {
-
     }
 
     public void ChangePlayerStatus(int playerIndex, int changeNum, DataValidation._status status)
     {
         int playerID = memberIDList[playerIndex];
 
-        playerManager.SetStatus_Change(playerID, changeNum, status);
+        PlayerManager.Instance.SetStatus_Change(playerID, changeNum, status);
     }
     
     public int GetPlayerSkill(int playerIndex, int skillIndex)
@@ -98,7 +105,7 @@ public class PartyManager : MonoBehaviour
         int result = -1;
         int playerID = memberIDList[playerIndex];
 
-        result = playerManager.GetStatus_Skill(playerID, skillIndex);
+        result = PlayerManager.Instance.GetStatus_Skill(playerID, skillIndex);
 
         return result;
     }
@@ -151,6 +158,36 @@ public class PartyManager : MonoBehaviour
         int result = 0;
 
         result = memberIDList.Count;
+
+        return result;
+    }
+
+    public int GetActiveMemberNum()
+    {
+        int result = 0;
+
+        for (int n = 0; n < memberIDList.Count; n++)
+        {
+            int hp = GetPlayerStatus_Current(n, DataValidation._status.HP);
+
+            if(hp > 0) result++;
+        }
+
+        return result;
+    }
+
+    public List<int> GetActiveMemberIndex()
+    {
+        List<int> result = new List<int>();
+
+        int hp = 0;
+
+        for (int n = 0; n < memberIDList.Count; n++)
+        {
+            hp = GetPlayerStatus_Current(n, DataValidation._status.HP);
+
+            if (hp > 0) result.Add(n);
+        }
 
         return result;
     }

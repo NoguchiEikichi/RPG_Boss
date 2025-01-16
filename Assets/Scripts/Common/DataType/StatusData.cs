@@ -1,4 +1,6 @@
-﻿[System.Serializable]
+﻿using System;
+
+[System.Serializable]
 public class StatusData
 {
     public int HP;
@@ -32,19 +34,19 @@ public class StatusData
     {
         return new StatusData
         {
-            HP = a.HP + b.HP,
-            MP = a.MP + b.MP,
-            SP = a.SP + b.SP,
-            STR = a.STR + b.STR,
-            DEF = a.DEF + b.DEF,
-            INT = a.INT + b.INT,
-            MND = a.MND + b.MND,
-            AGI = a.AGI + b.AGI,
-            LUK = a.LUK + b.LUK,
-            HIT = a.HIT + b.HIT,
-            DEX = a.DEX + b.DEX,
-            CRI = a.CRI + b.CRI,
-            CRI_mul = a.CRI_mul + b.CRI_mul,
+            HP = Math.Max(0, a.HP + b.HP),
+            MP = Math.Max(0, a.MP + b.MP),
+            SP = Math.Max(0, a.SP + b.SP),
+            STR = Math.Max(0, a.STR + b.STR),
+            DEF = Math.Max(0, a.DEF + b.DEF),
+            INT = Math.Max(0, a.INT + b.INT),
+            MND = Math.Max(0, a.MND + b.MND),
+            AGI = Math.Max(0, a.AGI + b.AGI),
+            LUK = Math.Max(0, a.LUK + b.LUK),
+            HIT = Math.Max(0, a.HIT + b.HIT),
+            DEX = Math.Max(0, a.DEX + b.DEX),
+            CRI = Math.Max(0, a.CRI + b.CRI),
+            CRI_mul = Math.Max(0, a.CRI_mul + b.CRI_mul),
             Aptitude_Fire = a.Aptitude_Fire + b.Aptitude_Fire,
             Aptitude_Aqua = a.Aptitude_Aqua + b.Aptitude_Aqua,
             Aptitude_Wind = a.Aptitude_Wind + b.Aptitude_Wind,

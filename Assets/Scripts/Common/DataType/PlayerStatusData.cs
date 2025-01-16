@@ -45,9 +45,7 @@ public class PlayerStatusData
     public StatusEffectData statusEffect;
 
     /// <summary>
-    /// 装備品のID格納用の変数
+    /// スキルのID格納用の変数
     /// </summary>
-    public EquipPositionData equip;
-
     public List<int> skill;
 }

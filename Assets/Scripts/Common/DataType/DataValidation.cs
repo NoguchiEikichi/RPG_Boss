@@ -139,15 +139,9 @@ public class DataValidation  //ゲーム全体で共通のenumを定義
     //敵の行動パターンの種類
     public enum _pattern
     {
-        mob1,
-        mob2,
-        mob3,
-        mobSp1,
-        boss1,
-        boss2,
-        boss3,
-        boss4,
-        bossSp1,
-        bossSp2,
+        random,
+        systematic,
+        logical,
+        none
     }
 }

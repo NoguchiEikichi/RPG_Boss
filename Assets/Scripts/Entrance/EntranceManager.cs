@@ -5,18 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class EntranceManager : MonoBehaviour
 {
+    //遷移先のシーンを指定するための変数
     DataValidation._element element = DataValidation._element.Fire;
 
     EnemyInformation enemyInfo;
+    MenuManager menuManager;
 
     void Start()
     {
         enemyInfo = GameObject.Find("BossInfoSpace").transform.gameObject.GetComponent<EnemyInformation>();
+        menuManager = GameObject.Find("MenuManager").transform.gameObject.GetComponent<MenuManager>();
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Horizontal"))
+        if (Input.GetButtonDown("Horizontal") && !menuManager.isMenu)
         {
             int direction = (int)Input.GetAxisRaw("Horizontal");
             BossChange(direction);
@@ -31,7 +34,7 @@ public class EntranceManager : MonoBehaviour
         else if (element >= DataValidation._element.None)
             element = DataValidation._element.Fire;
 
-        enemyInfo.ElementChange(direction);
+        enemyInfo.BossChange(direction);
     }
 
     public void SceneMove()

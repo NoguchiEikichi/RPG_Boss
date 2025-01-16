@@ -22,9 +22,6 @@ public class CommandDisplay : MonoBehaviour
     GameObject charaCommand_First;  //個人の最初に選択されるコマンド
     GameObject[] skillCommand;
 
-    //敵情報のウインドウ
-    GameObject InfoWindow;
-
     void Start()
     {
         //Managerクラスの取得
@@ -49,10 +46,6 @@ public class CommandDisplay : MonoBehaviour
             skillCommand[n] = charaCommand.transform.GetChild(n).gameObject;
         }
         charaCommandWindow.SetActive(false);
-
-        //敵情報のウインドウの取得
-        InfoWindow = GameObject.Find("InfoWindow");
-        InfoWindow.SetActive(false);
     }
 
     void Update()
@@ -76,11 +69,6 @@ public class CommandDisplay : MonoBehaviour
             else if (charaCommandWindow.activeSelf)
             {
                 IsCharaCommand();
-            }
-            //敵情報のウインドウが表示されているときの処理
-            else if (InfoWindow.activeSelf)
-            {
-                IsInfoWindow();
             }
             //ウインドウが表示されていない時の処理
             else
@@ -107,11 +95,6 @@ public class CommandDisplay : MonoBehaviour
 
             EventSystem.current.SetSelectedGameObject(charaCommand_First);
         }
-        if (commandManager.isInfo)
-        {
-            partyCommandWindow.SetActive(false);
-            InfoWindow.SetActive(true);
-        }
     }
 
     //キャラコマンドが表示されている時の処理
@@ -121,22 +104,24 @@ public class CommandDisplay : MonoBehaviour
 
         if (Input.GetButtonDown("Cancel"))
         {
-            commandManager.Command_Battle(false);
-            partyCommandWindow.SetActive(true);
-            charaCommandWindow.SetActive(false);
+            if (commandManager.currentNum <= 0)
+            {
+                commandManager.Command_Battle(false);
+                partyCommandWindow.SetActive(true);
+                charaCommandWindow.SetActive(false);
 
-            EventSystem.current.SetSelectedGameObject(partyCommand_First);
+                EventSystem.current.SetSelectedGameObject(partyCommand_First);
+            }
+            else
+            {
+                commandManager.CommandCancel();
+                EventSystem.current.SetSelectedGameObject(charaCommand_First);
+            }
         }
-    }
 
-    //敵情報のウインドウが表示されているときの処理
-    void IsInfoWindow()
-    {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Submit"))
         {
-            commandManager.Command_GetInformation(false);
-            partyCommandWindow.SetActive(true);
-            InfoWindow.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(charaCommand_First);
         }
     }
 
@@ -154,6 +139,8 @@ public class CommandDisplay : MonoBehaviour
                 skillCommand[n].SetActive(false);
                 continue;
             }
+
+            skillCommand[n].SetActive(true);
 
             //テキストメッシュプロの取得
             TextMeshProUGUI skillNameText;

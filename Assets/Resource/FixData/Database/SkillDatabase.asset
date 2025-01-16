@@ -30,7 +30,7 @@ MonoBehaviour:
     additionalEffect: none
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u6E3E\u8EAB\u306E\u4E00\u6483\u3092\u653E\u3064\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 1
@@ -50,7 +50,7 @@ MonoBehaviour:
     additionalEffect: none
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u6E3E\u8EAB\u306E\u4E00\u6483\u3092\u653E\u3064\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 2
@@ -110,14 +110,14 @@ MonoBehaviour:
     additionalEffect: none
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u9632\u5FA1\u3092\u6368\u3066\u3001\u5168\u529B\u306E\u4E00\u6483\u3092\u653E\u3064\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 5
-    name: "\u30D5\u30EC\u30A4\u30E0\u30D0\u30C3\u30B7\u30E5"
+    name: "\u30B7\u30FC\u30EB\u30C9\u30D0\u30C3\u30B7\u30E5"
     costStatus: 2
     costNum: 10
-    effectFormula_AttackStatus: 3
+    effectFormula_AttackStatus: 4
     effectFormula_AttackStatus_mul: 3
     effectFormula_DefenceStatus: 4
     effectFormula_DefenceStatus_mul: 1
@@ -130,7 +130,7 @@ MonoBehaviour:
     additionalEffect: none
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u76FE\u3092\u6B63\u9762\u306B\u5411\u3051\u3001\u7A81\u9032\u3059\u308B\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 6
@@ -150,7 +150,7 @@ MonoBehaviour:
     additionalEffect: none
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u96F7\u3092\u7E8F\u3063\u305F\u4E00\u6483\u3092\u653E\u3064\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 7
@@ -170,7 +170,7 @@ MonoBehaviour:
     additionalEffect: none
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u51B7\u6C17\u3092\u7E8F\u3063\u305F\u4E00\u6483\u3092\u653E\u3064\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 8
@@ -194,7 +194,7 @@ MonoBehaviour:
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 9
-    name: "\u5730\u58CA\u6483"
+    name: "\u5730\u9762\u6483"
     costStatus: 2
     costNum: 10
     effectFormula_AttackStatus: 3
@@ -234,7 +234,7 @@ MonoBehaviour:
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 11
-    name: "\u9ED2\u86C7\u6483"
+    name: "\u9ED2\u546A\u6483"
     costStatus: 2
     costNum: 10
     effectFormula_AttackStatus: 3
@@ -250,7 +250,7 @@ MonoBehaviour:
     additionalEffect: none
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u546A\u3044\u3092\u5E2F\u3073\u305F\u4E00\u6483\u3092\u653E\u3064\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 12
@@ -274,7 +274,7 @@ MonoBehaviour:
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 13
-    name: "\u30E9\u30A4\u30C8\u30CB\u30F3\u30B0\u30EC\u30A4\u30F3"
+    name: "\u30AA\u30FC\u30D0\u30FC\u30D2\u30FC\u30C8"
     costStatus: 1
     costNum: 10
     effectFormula_AttackStatus: 5
@@ -330,7 +330,7 @@ MonoBehaviour:
     additionalEffect: multistrike
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u3044\u304F\u3064\u3082\u306E\u706B\u7403\u304C\u76F8\u624B\u306B\u8972\u3044\u639B\u304B\u308B\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 16
@@ -650,7 +650,7 @@ MonoBehaviour:
     additionalEffect: quick
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    useText: "\u76EE\u306B\u3082\u3068\u307E\u3089\u306C\u901F\u3055\u3067\u5149\u7DDA\u304C\u653E\u305F\u308C\u308B\u3002"
     sprite: aaaaa/aa.png
     effect: aaaaa/aa.png
   - id: 32
@@ -1068,6 +1068,486 @@ MonoBehaviour:
     CRI: 5
     CRI_mul: 150
     additionalEffect: regenerate
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 53
+    name: "\u30D5\u30A1\u30A4\u30A2\u30DC\u30EB\u30C8"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 0
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 54
+    name: "\u30AA\u30FC\u30D0\u30FC\u30D2\u30FC\u30C8"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 0
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 55
+    name: "\u30B9\u30AD\u30EB3"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 0
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 56
+    name: "\u30A4\u30F3\u30D5\u30A7\u30EB\u30CE"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 0
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 57
+    name: "\u30D0\u30D6\u30EB\u30DC\u30E0"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 1
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 58
+    name: "\u30CF\u30A4\u30C9\u30ED\u30A6\u30A7\u30FC\u30D6"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 1
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 59
+    name: "\u6BD2\u306E\u6CE1"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 1
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 60
+    name: "\u30D5\u30A7\u30A4\u30BF\u30EB\u30A6\u30A7\u30FC\u30D6"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 1
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 61
+    name: "\u30A6\u30A3\u30F3\u30C9\u30AB\u30C3\u30BF\u30FC"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 2
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 62
+    name: "\u30DC\u30EB\u30C6\u30C3\u30AF\u30B9\u30A2\u30ED\u30FC"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 2
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 63
+    name: "\u30B9\u30AD\u30EB3"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 2
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 64
+    name: "\u30C6\u30F3\u30DA\u30B9\u30C8"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 2
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 65
+    name: "\u30B9\u30C8\u30FC\u30F3\u30D0\u30EC\u30C3\u30C8"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 3
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 66
+    name: "\u30ED\u30C3\u30AF\u30AD\u30E3\u30CE\u30F3"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 3
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 67
+    name: "\u30B9\u30AD\u30EB3"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 3
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 4
+    effectFormula_DefenceStatus_mul: 1
+    element: 3
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 68
+    name: "\u30A2\u30FC\u30B9\u30AF\u30A8\u30A4\u30AF"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 3
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 69
+    name: "\u30E9\u30A4\u30C8\u30DC\u30FC\u30EB"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 4
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 70
+    name: "\u30BB\u30A4\u30AF\u30EA\u30C3\u30C9\u30EC\u30A4\u30F3"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 4
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 71
+    name: "\u30E9\u30A4\u30B8\u30F3\u30B0\u30B9\u30D4\u30A2"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 3
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 4
+    effectFormula_DefenceStatus_mul: 1
+    element: 4
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 72
+    name: "\u7834\u6EC5\u306E\u5149"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 4
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 73
+    name: "\u9ED2\u546A\u6483"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 3
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 4
+    effectFormula_DefenceStatus_mul: 1
+    element: 5
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 74
+    name: "\u30CA\u30A4\u30C8\u30D0\u30FC\u30B9\u30C8"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 5
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 75
+    name: "\u30B9\u30AD\u30EB3"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 3
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 4
+    effectFormula_DefenceStatus_mul: 1
+    element: 5
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
+    description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"
+    sprite: aaaaa/aa.png
+    effect: aaaaa/aa.png
+  - id: 76
+    name: "\u30A4\u30AF\u30EA\u30D7\u30B9"
+    costStatus: 1
+    costNum: 0
+    effectFormula_AttackStatus: 5
+    effectFormula_AttackStatus_mul: 3
+    effectFormula_DefenceStatus: 6
+    effectFormula_DefenceStatus_mul: 1
+    element: 5
+    type: 0
+    target: 4
+    HIT: 100
+    CRI: 5
+    CRI_mul: 150
+    additionalEffect: none
     description: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     useText: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u6575\u3092\u653B\u6483\u3057\u305F\u3002"

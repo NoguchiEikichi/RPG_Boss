@@ -9,7 +9,6 @@ public class SkillManager : MonoBehaviour, PerformLoading
 {
     SkillDatabase skillDB;
 
-    PartyManager partyManager;
     EnemyManager enemyManager;
 
     //必要なアセットの読み込み
@@ -33,7 +32,6 @@ public class SkillManager : MonoBehaviour, PerformLoading
 
     void Start()
     {
-        partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
 
@@ -66,9 +64,6 @@ public class SkillManager : MonoBehaviour, PerformLoading
 
             case DataValidation._skillType.Buff:
                 break;
-
-            case DataValidation._skillType.Move:
-                break;
         }
     }
 
@@ -95,7 +90,7 @@ public class SkillManager : MonoBehaviour, PerformLoading
             case DataValidation._target.enemy_Once:
                 //攻撃威力の算出
                 status_Attack = skillDB.skillDatas[skillID].effectFormula_AttackStatus;
-                atk = partyManager.GetPlayerStatus_Current(userID, status_Attack);
+                atk = PartyManager.Instance.GetPlayerStatus_Current(userID, status_Attack);
                 atk = (int)(atk * skillDB.skillDatas[skillID].effectFormula_AttackStatus_mul);
 
                 //防御力の算出
@@ -113,7 +108,7 @@ public class SkillManager : MonoBehaviour, PerformLoading
                 BattleLogManager.Instance.LogDisplay(useText);
 
                 string text = "{0}は{1}に{2}ダメージ与えた。";
-                string userName = partyManager.GetPlayerName(userID);
+                string userName = PartyManager.Instance.GetPlayerName(userID);
                 string targetName = enemyManager.GetEnemyStatus_Name(target);
                 useText = string.Format(text, userName, targetName, damage);
                 BattleLogManager.Instance.LogDisplay(useText);
@@ -136,13 +131,23 @@ public class SkillManager : MonoBehaviour, PerformLoading
 
                 //防御力の算出
                 status_Defense = skillDB.skillDatas[skillID].effectFormula_DefenceStatus;
-                vit = partyManager.GetPlayerStatus_Current(target, status_Defense);
+                vit = PartyManager.Instance.GetPlayerStatus_Current(target, status_Defense);
                 vit = (int)(vit * skillDB.skillDatas[skillID].effectFormula_DefenceStatus_mul);
 
                 //ダメージの計算
                 damage = DamageCalculator.CalculateDamage(atk, vit);
                 //ダメージの付与
                 ChangeHP(-damage, team, target);
+                
+                //使用テキストの表示
+                useText = skillDB.skillDatas[skillID].useText;
+                BattleLogManager.Instance.LogDisplay(useText);
+
+                text = "{0}は{1}に{2}ダメージ与えた。";
+                userName = enemyManager.GetEnemyStatus_Name(userID);
+                targetName = PartyManager.Instance.GetPlayerName(target);
+                useText = string.Format(text, userName, targetName, damage);
+                BattleLogManager.Instance.LogDisplay(useText);
                 break;
 
             case DataValidation._target.ally_All:
@@ -162,7 +167,7 @@ public class SkillManager : MonoBehaviour, PerformLoading
         switch (team)
         {
             case Const.Team.Ally:
-                partyManager.ChangePlayerStatus(target, changeNum, DataValidation._status.HP);
+                PartyManager.Instance.ChangePlayerStatus(target, changeNum, DataValidation._status.HP);
                 break;
 
             case Const.Team.Enemy:

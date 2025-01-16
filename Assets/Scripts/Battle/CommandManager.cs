@@ -35,13 +35,6 @@ public class CommandManager : MonoBehaviour
         get { return _isBattle; }
         private set { _isBattle = value; }
     }
-    
-    bool _isInfo;
-    public bool isInfo
-    {
-        get { return _isInfo; }
-        private set { _isInfo = value; }
-    }
 
     //逃走用のフラグ
     bool _escapeFLG;
@@ -79,11 +72,6 @@ public class CommandManager : MonoBehaviour
     public void Command_Battle(bool flg)
     {
         isBattle = flg;
-    }
-
-    public void Command_GetInformation(bool flg)
-    {
-        isInfo = flg;
     }
 
     public void Command_Escape()
@@ -130,11 +118,15 @@ public class CommandManager : MonoBehaviour
         if (currentNum >= memberNum) isCommand = false;
     }
 
+    public void CommandCancel()
+    {
+        currentNum--;
+    }
+
     //コマンドの初期化
     public void CommandReset()
     {
         isBattle = false;
-        isInfo = false;
         command = new DataValidation._command[memberNum];
         commandID = new int[memberNum];
         currentNum = 0;

@@ -17,7 +17,7 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: c1e4bc6ec8ee9564aa19fb9ed6208b8b
   m_SerializeEntries:
-  - m_GUID: 7ee6217ee838c4f4bb1a9d547e1e13f2
+  - m_GUID: 7020de85f3061a14eb5dca1b61a4b34b
     m_Address: BattleLogText
     m_ReadOnly: 0
     m_SerializedLabels: []
@@ -32,13 +32,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cf1e886ffa8c4f84e9bccb870cbb16e4
-    m_Address: PlayerStatus
+  - m_GUID: 14c8bbd6662cb36488429ce1edcaaebb
+    m_Address: SkillDatabase
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 14c8bbd6662cb36488429ce1edcaaebb
-    m_Address: SkillDatabase
+  - m_GUID: cf1e886ffa8c4f84e9bccb870cbb16e4
+    m_Address: PlayerStatus
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

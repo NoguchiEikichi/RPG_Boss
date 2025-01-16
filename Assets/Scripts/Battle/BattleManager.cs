@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 
 public class BattleManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class BattleManager : MonoBehaviour
     CommandManager commandManager;
     BattleLogManager logManager;
     SkillManager skillManager;
+    EnemyController enemyController;
 
     /// <summary>
     /// バトル開始のフラグ
@@ -30,33 +32,13 @@ public class BattleManager : MonoBehaviour
 
     //プレイヤーのデータ
     PartyManager partyManager;
-    int playerHP
-    {
-        get { return partyManager.GetPlayerStatus_Current(0, DataValidation._status.HP); }
-        set { partyManager.ChangePlayerStatus(0, value, DataValidation._status.HP); }
-    }
-    int playerSTR
-    {
-        get { return partyManager.GetPlayerStatus_Current(0, DataValidation._status.STR); }
-    }
-    bool defenseFLG_P = false;
-
     //エネミーのデータ
     EnemyManager enemyManager;
-    int enemyHP
-    {
-        get { return enemyManager.GetStatus_Current(0, DataValidation._status.HP); }
-        set { enemyManager.SetStatus_Change(0, value, DataValidation._status.HP); }
-    }
-    int enemySTR
-    {
-        get { return enemyManager.GetStatus_Current(0, DataValidation._status.STR); }
-        set { enemyManager.SetStatus_Change(0, value, DataValidation._status.STR); }
-    }
-    bool defenseFLG_E
-    {
-        get { return enemyManager.GetStatusEffect(0, DataValidation._statusEffect.Defense); }
-    }
+
+    //
+    List<int> idList = new List<int>();
+
+    List<int> turn = new List<int>();
 
     void Start()
     {
@@ -65,6 +47,7 @@ public class BattleManager : MonoBehaviour
         skillManager = GameObject.Find("SkillManager").GetComponent<SkillManager>();
         partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        enemyController = GameObject.Find("EnemyController").GetComponent<EnemyController>();
     }
 
     void Update()
@@ -73,8 +56,13 @@ public class BattleManager : MonoBehaviour
         if (!startFLG && LoadObserver.Instance.loadEnd)
         {
             //パーティの人数をCommandManagerに登録
-            //int num = partyManager.GetMemberNum();
-            commandManager.SetMemberNum(1);
+            int num = partyManager.GetMemberNum();
+            commandManager.SetMemberNum(num);
+
+            idList.Add(0);
+            idList.Add(1);
+            idList.Add(2);
+            idList.Add(900);
 
             TurnEnd();
             startFLG = true;
@@ -86,8 +74,15 @@ public class BattleManager : MonoBehaviour
             isTurn = true;
             StartCoroutine(Turn());
         }
+
+        if (endFLG && Input.anyKeyDown)
+        {
+            SceneManager.LoadSceneAsync(1);
+        }
     }
 
+    //ターンの処理
+    #region
     //ターン全体の流れの処理
     IEnumerator Turn()
     {
@@ -100,25 +95,22 @@ public class BattleManager : MonoBehaviour
         bool wipeOutFLG_P = false;
         bool wipeOutFLG_E = false;
 
-        for (int n = 0; n < 2; n++)
+        Sort();
+
+        for (int n = 0; n < turn.Count; n++)
         {
-            switch (n)
-            {
-                case 0:
-                    PlayerTurn();
-                    if (playerHP <= 0) wipeOutFLG_P = true;
-                    else if (enemyHP <= 0) wipeOutFLG_E = true;
-                    break;
-
-                case 1:
-                    EnemyTurn();
-                    if (enemyHP <= 0) wipeOutFLG_E = true;
-                    else if (playerHP <= 0) wipeOutFLG_P = true;
-                    break;
-            }
-
+            if (turn[n] / 100 < 1) PlayerTurn(turn[n]);
+            else EnemyTurn();
 
             yield return new WaitForSeconds(1.0f);
+
+            //プレイヤー側が全滅しているか判定
+            int activePlayerMember = PartyManager.Instance.GetActiveMemberNum();
+            if (activePlayerMember <= 0) wipeOutFLG_P = true;
+
+            //エネミー側が全滅しているか判定
+            int enemyHP = enemyManager.GetStatus_Current(0, DataValidation._status.HP);
+            if (enemyHP <= 0) wipeOutFLG_E = true;
 
             //どちらかが全滅しているか判定
             if (wipeOutFLG_P || wipeOutFLG_E) break;
@@ -130,38 +122,51 @@ public class BattleManager : MonoBehaviour
         else TurnEnd();
     }
 
-    //プレイヤーキャラのターンの処理
-    void PlayerTurn()
+    void Sort()
     {
-        defenseFLG_P = false;
+        turn = new List<int>();
 
-        //int damage = 0;
+        List<int> unfinishedList = new List<int>(idList);
+        int max = 0;
+        int maxID = 0;
 
+        for (int n = 0; n < idList.Count; n++)
+        {
+            for (int m = 0; m < unfinishedList.Count; m++)
+            {
+                int current = GetCharaAGI(unfinishedList[m]);
+
+                if (max < current)
+                {
+                    max = current;
+                    maxID = unfinishedList[m];
+                }
+                if (max == current)
+                {
+                    int randomNum = Random.Range(0, 2);
+                    if (randomNum < 1)
+                    {
+                        max = current;
+                        maxID = unfinishedList[m];
+                    }
+                }
+            }
+
+            unfinishedList.Remove(maxID);
+            turn.Add(maxID);
+            max = 0;
+        }
+    }
+
+    //プレイヤーキャラのターンの処理
+    void PlayerTurn(int id)
+    {
         switch (commandManager.command[0])
         {
-            /*
-            case DataValidation._command.Attack:
-                if (defenseFLG_E) damage = playerSTR / 2;
-                else damage = playerSTR;
-                enemyManager.Damage(0, damage);
-                logManager.LogDisplay("ダメージ:" + damage);
-                break;*/
-
             case DataValidation._command.Skill:
-                int skillID = partyManager.GetPlayerSkill(0, commandManager.commandID[0]);
-                skillManager.UseSkill(skillID, 0, 900);
+                int skillID = partyManager.GetPlayerSkill(id, commandManager.commandID[id]);
+                skillManager.UseSkill(skillID, id, 900);
                 break;
-
-                /*
-            case DataValidation._command.Defense:
-                defenseFLG_P = true;
-                logManager.LogDisplay("身を守っている。");
-                break;
-
-            case DataValidation._command.Item:
-                playerHP -= playerHP;
-                logManager.LogDisplay("item");
-                break;*/
 
             default:
                 break;
@@ -171,20 +176,12 @@ public class BattleManager : MonoBehaviour
     //敵キャラのターンの処理
     void EnemyTurn()
     {
-        int damage = 0;
-        if (defenseFLG_P) damage = enemySTR / 2;
-        else damage = enemySTR;
-
-        //playerHP = -damage;
-
-        logManager.LogDisplay("ダメージ：" + damage);
+        enemyController.EnemyMove();
     }
 
     //ターン終了時の処理
     void TurnEnd()
     {
-        logManager.LogDisplay("PlayerHP:" + playerHP);
-        logManager.LogDisplay("EnemyHP:" + enemyHP);
         commandManager.CommandReset();
         isTurn = false;
     }
@@ -192,21 +189,45 @@ public class BattleManager : MonoBehaviour
     //逃げた時の処理
     void Escape()
     {
-        endFLG = true;
         logManager.LogDisplay("逃げ出した！");
+        StartCoroutine(BattleEnd());
     }
 
     //プレイヤーが全滅した時の処理
     void WipeOut_Player()
     {
-        endFLG = true;
         logManager.LogDisplay("全滅した……。");
+        StartCoroutine(BattleEnd());
     }
 
     //敵が全滅した時の処理
     void WipeOut_Enemy()
     {
-        endFLG = true;
         logManager.LogDisplay("敵を倒した！");
+        StartCoroutine(BattleEnd());
     }
+
+    //バトル終了時の共通処理
+    IEnumerator BattleEnd()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        endFLG = true;
+    }
+    #endregion
+
+    //データの取得
+    #region
+    int GetCharaAGI(int charaID)
+    {
+        int result = 0;
+
+        if (charaID / 100 < 1)
+            result = partyManager.GetPlayerStatus_Current(charaID % 100, DataValidation._status.AGI);
+        else 
+            result = enemyManager.GetStatus_Current(charaID % 100, DataValidation._status.AGI);
+
+        return result;
+    }
+    #endregion
 }

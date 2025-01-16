@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class PlayerManager : MonoBehaviour, PerformLoading
+public class PlayerManager : Singleton<PlayerManager>, PerformLoading
 {
     //必要なアセットの読み込み
     #region
@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour, PerformLoading
     {
         get { return loadEnd_DB && loadEnd_Status; }
     }
+    bool reset = false;
 
     void Awake()
     {
@@ -56,6 +57,15 @@ public class PlayerManager : MonoBehaviour, PerformLoading
         }
         else Debug.LogError("Failed to load PlayerStatus");
     }
+
+    void Update()
+    {
+        if (loadEnd && !reset)
+        {
+            StatusReset();
+            reset = true;
+        }
+    }
     #endregion
 
     //ステータスの初期化
@@ -63,9 +73,9 @@ public class PlayerManager : MonoBehaviour, PerformLoading
     {
         for (int n = 0; n < playerDB.playerDatas.Length; n++)
         {
-            SetStatus_Base(n);
-
             ResetStatus_ChangeAll(n);
+
+            SetStatus_Base(n);
         }
     }
 
@@ -1709,7 +1719,7 @@ public class PlayerManager : MonoBehaviour, PerformLoading
     {
         int result = 0;
 
-        result = charaStatus * 10 * lv / 100 + lv + 10;
+        result = charaStatus * 30 * lv / 100 + lv + 10 + charaStatus * 10;
 
         return result;
     }

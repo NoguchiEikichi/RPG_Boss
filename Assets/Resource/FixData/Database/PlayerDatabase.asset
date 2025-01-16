@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: PlayerDatabase
   m_EditorClassIdentifier: 
   playerDatas:
-  - HP: 120
-    MP: 90
+  - HP: 140
+    MP: 80
     SP: 100
-    STR: 90
-    DEF: 130
-    INT: 70
-    MND: 130
-    AGI: 70
+    STR: 100
+    DEF: 135
+    INT: 60
+    MND: 135
+    AGI: 50
     LUK: 100
     HIT: 100
     DEX: 5
@@ -43,13 +43,13 @@ MonoBehaviour:
     roll: 0
     sprite: aaaaa/aa.png
   - HP: 100
-    MP: 90
+    MP: 60
     SP: 100
     STR: 150
     DEF: 150
-    INT: 80
-    MND: 80
-    AGI: 50
+    INT: 70
+    MND: 70
+    AGI: 100
     LUK: 100
     HIT: 100
     DEX: 5
@@ -72,11 +72,11 @@ MonoBehaviour:
     roll: 0
     sprite: aaaaa/aa.png
   - HP: 100
-    MP: 100
+    MP: 90
     SP: 100
-    STR: 120
-    DEF: 100
-    INT: 70
+    STR: 130
+    DEF: 90
+    INT: 80
     MND: 80
     AGI: 130
     LUK: 100
@@ -100,14 +100,14 @@ MonoBehaviour:
     name: "\u30F4\u30A1\u30F3"
     roll: 0
     sprite: aaaaa/aa.png
-  - HP: 70
+  - HP: 75
     MP: 130
     SP: 100
-    STR: 130
+    STR: 125
     DEF: 60
-    INT: 130
+    INT: 125
     MND: 60
-    AGI: 120
+    AGI: 125
     LUK: 100
     HIT: 100
     DEX: 5
@@ -134,9 +134,9 @@ MonoBehaviour:
     SP: 100
     STR: 70
     DEF: 90
-    INT: 100
+    INT: 110
     MND: 90
-    AGI: 130
+    AGI: 120
     LUK: 100
     HIT: 100
     DEX: 5
@@ -162,10 +162,10 @@ MonoBehaviour:
     MP: 150
     SP: 100
     STR: 60
-    DEF: 80
+    DEF: 90
     INT: 150
-    MND: 90
-    AGI: 90
+    MND: 95
+    AGI: 75
     LUK: 100
     HIT: 100
     DEX: 5
@@ -184,17 +184,17 @@ MonoBehaviour:
     Resist_Light: 100
     Resist_Dark: 100
     id: 5
-    name: "\u30C1\u30E3\u30FC\u30EB\u30BA"
+    name: "\u30AF\u30ED\u30FC\u30C9"
     roll: 1
     sprite: aaaaa/aa.png
   - HP: 100
-    MP: 130
+    MP: 120
     SP: 100
-    STR: 80
-    DEF: 90
-    INT: 110
-    MND: 80
-    AGI: 110
+    STR: 90
+    DEF: 95
+    INT: 130
+    MND: 85
+    AGI: 80
     LUK: 100
     HIT: 100
     DEX: 5
@@ -217,12 +217,12 @@ MonoBehaviour:
     roll: 1
     sprite: aaaaa/aa.png
   - HP: 100
-    MP: 110
+    MP: 100
     SP: 100
-    STR: 70
-    DEF: 100
+    STR: 100
+    DEF: 90
     INT: 70
-    MND: 120
+    MND: 110
     AGI: 130
     LUK: 100
     HIT: 100
@@ -242,17 +242,17 @@ MonoBehaviour:
     Resist_Light: 100
     Resist_Dark: 100
     id: 7
-    name: "\u30AF\u30ED\u30FC\u30C9"
+    name: "\u30DE\u30A4\u30B1\u30EB"
     roll: 2
     sprite: aaaaa/aa.png
-  - HP: 80
-    MP: 130
+  - HP: 90
+    MP: 110
     SP: 100
-    STR: 90
-    DEF: 70
-    INT: 115
-    MND: 120
-    AGI: 95
+    STR: 80
+    DEF: 80
+    INT: 120
+    MND: 130
+    AGI: 90
     LUK: 100
     HIT: 100
     DEX: 5
@@ -271,17 +271,17 @@ MonoBehaviour:
     Resist_Light: 100
     Resist_Dark: 100
     id: 8
-    name: "\u30D1\u30A6\u30ED"
+    name: "\u30E1\u30C7\u30A3\u30A2"
     roll: 2
     sprite: aaaaa/aa.png
   - HP: 100
-    MP: 150
+    MP: 110
     SP: 100
-    STR: 70
+    STR: 80
     DEF: 100
-    INT: 80
+    INT: 90
     MND: 150
-    AGI: 50
+    AGI: 70
     LUK: 100
     HIT: 100
     DEX: 5

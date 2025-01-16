@@ -17,10 +17,10 @@ MonoBehaviour:
     MP: 100
     SP: 100
     STR: 160
-    DEF: 100
+    DEF: 95
     INT: 160
-    MND: 100
-    AGI: 80
+    MND: 95
+    AGI: 90
     LUK: 100
     HIT: 100
     DEX: 5
@@ -46,8 +46,8 @@ MonoBehaviour:
     dropItemChance_1: 2
     dropItemID_2: 1
     dropItemChance_2: 16
-    pattern: 4
-    useSkill: ///
+    pattern: 0
+    useSkill: 53/54/55/56
     judge: 0
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     sprite: aaaaa/aa.png
@@ -77,15 +77,15 @@ MonoBehaviour:
     Resist_Light: 100
     Resist_Dark: 100
     id: 1
-    name: "\u66B4\u541B\u6D77\u9B54\u30AF\u30E9\u30FC\u30B1\u30F3"
+    name: "\u66B4\u541B\u6D77\u9B54\u30CF\u30A4\u30C9\u30E9"
     dropEXP: 20
     dropG: 20
     dropItemID_1: 0
     dropItemChance_1: 2
     dropItemID_2: 1
     dropItemChance_2: 16
-    pattern: 5
-    useSkill: ///
+    pattern: 1
+    useSkill: 57/58/59/60
     judge: 0
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     sprite: aaaaa/aa.png
@@ -122,8 +122,8 @@ MonoBehaviour:
     dropItemChance_1: 2
     dropItemID_2: 1
     dropItemChance_2: 16
-    pattern: 6
-    useSkill: ///
+    pattern: 0
+    useSkill: 61/62/63/64
     judge: 0
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     sprite: aaaaa/aa.png
@@ -160,8 +160,8 @@ MonoBehaviour:
     dropItemChance_1: 2
     dropItemID_2: 1
     dropItemChance_2: 16
-    pattern: 7
-    useSkill: ///
+    pattern: 1
+    useSkill: 65/66/67/68
     judge: 0
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     sprite: aaaaa/aa.png
@@ -198,8 +198,8 @@ MonoBehaviour:
     dropItemChance_1: 2
     dropItemID_2: 1
     dropItemChance_2: 16
-    pattern: 8
-    useSkill: ///
+    pattern: 0
+    useSkill: 69/70/71/72
     judge: 0
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     sprite: aaaaa/aa.png
@@ -229,15 +229,15 @@ MonoBehaviour:
     Resist_Light: 50
     Resist_Dark: 150
     id: 5
-    name: "\u707D\u5384\u90AA\u7ADC\u30CF\u30A4\u30C9\u30E9"
+    name: "\u6191\u9B54\u5080\u9AB8\u30A4\u30D6\u30EA\u30FC\u30B9"
     dropEXP: 30
     dropG: 30
     dropItemID_1: 0
     dropItemChance_1: 2
     dropItemID_2: 1
     dropItemChance_2: 16
-    pattern: 9
-    useSkill: ///
+    pattern: 1
+    useSkill: 73/74/75/76
     judge: 0
     flavorText: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     sprite: aaaaa/aa.png

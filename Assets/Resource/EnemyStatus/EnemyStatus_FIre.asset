@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef1037d18e31cc8409e59d9f10bfade0, type: 3}
-  m_Name: EnemyStatus_FIre
+  m_Name: EnemyStatus_Fire
   m_EditorClassIdentifier: 
   enemyStatusDatas:
   - id: 0
     lv: 50
     exp: 0
     status_Base:
-      HP: 12060
-      MP: 10060
+      HP: 5060
+      MP: 5060
       SP: 100
-      STR: 275
-      DEF: 350
-      INT: 300
-      MND: 350
-      AGI: 175
+      STR: 400
+      DEF: 237
+      INT: 400
+      MND: 237
+      AGI: 225
       LUK: 250
       HIT: 100
       DEX: 5
@@ -36,10 +36,10 @@ MonoBehaviour:
       Aptitude_Earth: 100
       Aptitude_Light: 100
       Aptitude_Dark: 100
-      Resist_Fire: 100
-      Resist_Aqua: 100
+      Resist_Fire: 150
+      Resist_Aqua: 50
       Resist_Wind: 100
-      Resist_Earth: 100
+      Resist_Earth: 50
       Resist_Light: 100
       Resist_Dark: 100
     status_Plus:
@@ -95,14 +95,14 @@ MonoBehaviour:
       Resist_Light: 0
       Resist_Dark: 0
     status_Max:
-      HP: 10060
-      MP: 10060
+      HP: 5060
+      MP: 5060
       SP: 100
       STR: 400
-      DEF: 250
+      DEF: 237
       INT: 400
-      MND: 250
-      AGI: 200
+      MND: 237
+      AGI: 225
       LUK: 250
       HIT: 100
       DEX: 5
@@ -114,21 +114,21 @@ MonoBehaviour:
       Aptitude_Earth: 100
       Aptitude_Light: 100
       Aptitude_Dark: 100
-      Resist_Fire: 100
-      Resist_Aqua: 100
+      Resist_Fire: 150
+      Resist_Aqua: 50
       Resist_Wind: 100
-      Resist_Earth: 100
+      Resist_Earth: 50
       Resist_Light: 100
       Resist_Dark: 100
     status_Current:
-      HP: 10060
-      MP: 10060
+      HP: 5060
+      MP: 5060
       SP: 100
       STR: 400
-      DEF: 250
+      DEF: 237
       INT: 400
-      MND: 250
-      AGI: 200
+      MND: 237
+      AGI: 225
       LUK: 250
       HIT: 100
       DEX: 5
@@ -140,10 +140,10 @@ MonoBehaviour:
       Aptitude_Earth: 100
       Aptitude_Light: 100
       Aptitude_Dark: 100
-      Resist_Fire: 100
-      Resist_Aqua: 100
+      Resist_Fire: 150
+      Resist_Aqua: 50
       Resist_Wind: 100
-      Resist_Earth: 100
+      Resist_Earth: 50
       Resist_Light: 100
       Resist_Dark: 100
     statusEffect:

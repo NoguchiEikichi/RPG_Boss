@@ -6,11 +6,6 @@ using TMPro;
 
 public class EnemyInformation : MonoBehaviour
 {
-    public RectTransform infoTransform;
-    public int movePower = 1550;
-
-    DataValidation._element element = DataValidation._element.None;
-
     List<GameObject> bossInfo = new List<GameObject>();
     List<TextMeshProUGUI> nameText = new List<TextMeshProUGUI>();
 
@@ -20,7 +15,6 @@ public class EnemyInformation : MonoBehaviour
 
     void Start()
     {
-        infoTransform = this.gameObject.GetComponent<RectTransform>();
         int child = this.gameObject.transform.childCount;
 
         for (int n = 0; n < child; n++)
@@ -36,10 +30,18 @@ public class EnemyInformation : MonoBehaviour
         if (!setInfo && LoadObserver.Instance.loadEnd)
         {
             EnemyInfoDisplay();
+
+            //情報の順番を変更
+            bossInfo[bossInfo.Count - 1].transform.SetAsFirstSibling();
+            GameObject lastInfo = bossInfo[bossInfo.Count - 1];
+            bossInfo.RemoveAt(bossInfo.Count - 1);
+            bossInfo.Insert(0, lastInfo);
+
             setInfo = true;
         }
     }
 
+    //ボスの情報表示
     void EnemyInfoDisplay()
     {
         for (int n = 0; n < nameText.Count; n++)
@@ -48,9 +50,22 @@ public class EnemyInformation : MonoBehaviour
         }
     }
 
-    public void ElementChange(int direction)
+    //画面に表示するボスの情報を変更
+    public void BossChange(int direction)
     {
-        int move = movePower * direction;
-        infoTransform.position += new Vector3(move, 0, 0);
+        if (direction > 0)
+        {
+            bossInfo[0].transform.SetAsLastSibling();
+            GameObject firstInfo = bossInfo[0];
+            bossInfo.RemoveAt(0);
+            bossInfo.Add(firstInfo);
+        }
+        else if (direction < 0)
+        {
+            bossInfo[bossInfo.Count - 1].transform.SetAsFirstSibling();
+            GameObject lastInfo = bossInfo[bossInfo.Count - 1];
+            bossInfo.RemoveAt(bossInfo.Count - 1);
+            bossInfo.Insert(0, lastInfo);
+        }
     }
 }
